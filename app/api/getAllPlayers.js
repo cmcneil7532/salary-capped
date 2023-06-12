@@ -15,7 +15,9 @@ const getAllPlayers = async () => {
     const currentSalary = $(tds[2]).text();
     const nextYearSalary = $(tds[3]).text();
     const guranteed = $(tds[8]).text();
+    const id = index + 1;
     playerData.push({
+      id: index,
       name: name,
       team: team,
       currentSalary: currentSalary,

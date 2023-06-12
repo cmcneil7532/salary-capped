@@ -7,22 +7,21 @@ const getTeamPayrollNotes = async (teamId) => {
   const html = await response.text();
   const $ = cheerio.load(html);
   const allRows = $("#payroll-notes > tbody > tr");
-  console.log(allRows);
+
   const notesData = [];
   allRows.each((index, element) => {
     const ths = $(element).find("th");
     const tds = $(element).find("td");
     const name = $(ths[0]).text();
-    console.log(name);
+
     const notes = $(tds[1]).text();
     notesData.push({
       name: name,
-      notes: notes
+      notes: notes,
     });
   });
-  console.log("result", notesData);
-  return notesData;
 
+  return notesData;
 };
 
 export default getTeamPayrollNotes;
