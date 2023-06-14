@@ -7,11 +7,11 @@ const Player = ({ roster, players }) => {
   const [playerSelected, setPlayerSelected] = useState({});
   return (
     <div>
-      {roster.map((player) => {
+      {roster.map((player, index) => {
         return (
           <div
             className=" flex justify-evenly bg-gradient-to-tl from-slate-200 to-white hover:-translate-y-1 cursor-pointer"
-            key={player.id}
+            key={index}
             onClick={() => {
               setShowModal(true);
               setPlayerSelected(player);
