@@ -8,6 +8,7 @@ const getAllPlayers = async () => {
   const $ = cheerio.load(html);
   const allRows = $("#player-contracts > tbody > tr");
   const playerData = [];
+  const seen = new Set();
   allRows.each((index, element) => {
     const tds = $(element).find("td");
     const name = $(tds[0]).text();
@@ -23,7 +24,12 @@ const getAllPlayers = async () => {
       guranteed: guranteed,
     });
   });
-  return playerData;
+  const filteredPlayers = playerData.filter(player => {
+    const dup = seen.has(player.name);
+    seen.add(player.name)
+    return !dup
+  });
+  return filteredPlayers
 };
 
 export default getAllPlayers;

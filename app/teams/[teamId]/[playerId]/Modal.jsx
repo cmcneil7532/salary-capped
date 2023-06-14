@@ -36,7 +36,7 @@ const Modal = ({
   const index = allContracts.findIndex(
     (player) => player.name === playerSelected.name
   );
-  const getRelatedContracts = allContracts.slice(index - 2, index + 3);
+  const getRelatedContracts = index === 0 ? allContracts.slice(0, 4) : allContracts.slice(index - 2, index + 3);
 
   const filteredPlayers = getRelatedContracts.filter(
     (player) => player.name !== playerSelected.name
