@@ -9,9 +9,6 @@ const Modal = ({
   players,
 }) => {
   if (!isVisible) return null;
-  const playerSelectedContract = +playerSelected.currentSalary
-    .replaceAll(",", "")
-    .substring(1);
   const findRelatedContracts = () => {
     const relatedContracts = players.map((player) => {
       return {
@@ -22,16 +19,28 @@ const Modal = ({
     return relatedContracts;
   };
   const allContracts = findRelatedContracts();
-  let top5 = [];
-  for (let i = 0; i < allContracts.length; i++) {
-    if (
-      allContracts[i].salary < playerSelected - 2000000 &&
-      allContracts[i].salary > playerSelected + 2000000
-    ) {
-      top5.push(allContracts[i]);
+
+  function compare(a, b) {
+    let playerA = a.salary;
+    let playerB = b.salary;
+    let comparison = 0;
+
+    if (playerA > playerB) {
+      comparison = -1;
+    } else if (playerA < playerB) {
+      comparison = 1;
     }
+    return comparison;
   }
-  console.log(top5); //Grant
+  allContracts.sort(compare);
+  const index = allContracts.findIndex(
+    (player) => player.name === playerSelected.name
+  );
+  const getRelatedContracts = allContracts.slice(index - 2, index + 3);
+
+  const filteredPlayers = getRelatedContracts.filter(
+    (player) => player.name !== playerSelected.name
+  );
 
   return (
     <div className="inset-0 fixed bg-black bg-opacity-25 backdrop-blur-sm justify-center items-center flex flex-col">
@@ -46,6 +55,22 @@ const Modal = ({
       <div className="w-[600px] h-[400px] bg-white">
         <h1>{playerSelected.name}</h1>
         <p>{playerSelected.currentSalary}</p>
+        <div>
+          <h1>Related Player Contracts</h1>
+          {filteredPlayers.map((player, index) => {
+            return (
+              <div key={index}>
+                <p>{player.name}</p>
+                <p>
+                  {player.salary.toLocaleString("en-US", {
+                    style: "currency",
+                    currency: "USD",
+                  })}
+                </p>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
