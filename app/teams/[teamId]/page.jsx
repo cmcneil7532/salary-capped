@@ -8,7 +8,7 @@ export default async function Page({ params }) {
   const data = await getAllPlayers();
   const marketSalary = "123,600,000";
   const teamId = params.teamId;
-  const notes = await getTeamPayrollNotes(teamId);
+  // const notes = await getTeamPayrollNotes(teamId);
   const roster = data.filter((team) => team.team === teamId);
   const teamObj = teams.find((obj) => obj.id === teamId);
   let currentYear = new Date().getFullYear();
