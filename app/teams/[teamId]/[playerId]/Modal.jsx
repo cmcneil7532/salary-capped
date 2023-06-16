@@ -7,8 +7,10 @@ const Modal = ({
   setPlayerSelected,
   playerSelected,
   players,
+  playerDetails,
 }) => {
   if (!isVisible) return null;
+  console.log(playerDetails);
   const findRelatedContracts = () => {
     const relatedContracts = players.map((player) => {
       return {
@@ -33,15 +35,17 @@ const Modal = ({
     return comparison;
   }
   allContracts.sort(compare);
+
   const index = allContracts.findIndex(
     (player) => player.name === playerSelected.name
   );
-  const getRelatedContracts = allContracts.slice(index - 2, index + 3);
+  
+  const getRelatedContracts = index === 0 ? allContracts.slice(0, 4) : allContracts.slice(index - 2, index + 3);
 
   const filteredPlayers = getRelatedContracts.filter(
     (player) => player.name !== playerSelected.name
   );
-
+  
   return (
     <div className="inset-0 fixed bg-black bg-opacity-25 backdrop-blur-sm justify-center items-center flex flex-col">
       <button
@@ -53,8 +57,10 @@ const Modal = ({
         X
       </button>
       <div className="w-[600px] h-[400px] bg-white">
-        <h1>{playerSelected.name}</h1>
-        <p>{playerSelected.currentSalary}</p>
+        <div>
+          <h1>{playerSelected.name}</h1>
+          <p>{playerSelected.currentSalary}</p>
+        </div>
         <div>
           <h1>Related Player Contracts</h1>
           {filteredPlayers.map((player, index) => {
