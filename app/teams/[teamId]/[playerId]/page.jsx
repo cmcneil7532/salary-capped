@@ -6,7 +6,7 @@ import getPlayerStats from "@/app/api/getPlayerStats";
 const Player = ({ roster, players }) => {
   const [showModal, setShowModal] = useState(false);
   const [playerSelected, setPlayerSelected] = useState({});
-  const [playerDetails, setPlayerDetails] = useState({})
+  // const [playerDetails, setPlayerDetails] = useState({})
 
   return (
     <div>
@@ -18,7 +18,7 @@ const Player = ({ roster, players }) => {
             onClick={async () => {
               setShowModal(true);
               setPlayerSelected(player);
-              setPlayerDetails(await getPlayerStats(player));
+              // setPlayerDetails(await getPlayerStats(player));
             }}
           >
             <h3 className="text-xl w-[20vw]">{player.name}</h3>
@@ -36,7 +36,7 @@ const Player = ({ roster, players }) => {
         setPlayerSelected={setPlayerSelected}
         playerSelected={playerSelected}
         players={players}
-        playerDetails={playerDetails}
+        // playerDetails={playerDetails}
       />
     </div>
   );
