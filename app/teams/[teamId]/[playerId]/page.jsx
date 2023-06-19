@@ -5,7 +5,7 @@ import Modal from "./Modal";
 const Player = ({ roster, players }) => {
   const [showModal, setShowModal] = useState(false);
   const [playerSelected, setPlayerSelected] = useState({});
-  const [ playerDetails, setPlayerDetails ] = useState({});
+  const [playerDetails, setPlayerDetails] = useState({});
   return (
     <div>
       {roster.map((player, index) => {
@@ -21,7 +21,6 @@ const Player = ({ roster, players }) => {
               const res = await fetch(`/api/?player=${slug}`);
               //formatted res in setPlayerDetails
               const statData = await res.json();
-              console.log(res)
               setPlayerDetails(statData);
             }}
           >
