@@ -1,15 +1,18 @@
 import * as cheerio from "cheerio";
 
 const getPlayerStats = async (playerSelected) => {
-  console.log(playerSelected);
+  // console.log(playerSelected.name && playerSelected.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""));
+
   try {
     //gets last initial from name string for letter directory
     const lastInitial = playerSelected.name[(playerSelected.name.indexOf(' ') + 1)].toLowerCase();
 
     //gets last name & first 2 letters of first name for name directory
     const firstSpaceIdx = playerSelected.name.search(' ');
-    const separatedNameArr = playerSelected.name.split(playerSelected.name[firstSpaceIdx])
-    const namePath = (separatedNameArr[1] + separatedNameArr[0].substring(0, 2)).toLowerCase();
+    const separatedNameArr = playerSelected.name.split(playerSelected.name[firstSpaceIdx]);
+    const twoCharsOfFirstName = separatedNameArr[0].replace(/[^a-z0-9]/gi,'')
+    const fiveCharsOfLastName = separatedNameArr[1].slice(0,5);
+    const namePath = (fiveCharsOfLastName + twoCharsOfFirstName.substring(0, 2)).toLowerCase();
     
     //web scrape for player stats
     const response = await fetch(`https://www.basketball-reference.com/players/${lastInitial}/${namePath}01.html`);
