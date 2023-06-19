@@ -58,8 +58,17 @@ const Modal = ({
       </button>
       <div className="w-[600px] h-[400px] bg-white">
         <div>
+          <img src={playerDetails.image} alt={`${playerSelected.name} image`} />
+          {/* {playerDetails.table.map((column) => {
+            return (
+              <div>
+                <p></p>
+              </div>
+            )
+          })}; */}
           <h1>{playerSelected.name}</h1>
           <p>{playerSelected.currentSalary}</p>
+          <p>{JSON.stringify(playerDetails)}</p>
         </div>
         <div>
           <h1>Related Player Contracts</h1>
