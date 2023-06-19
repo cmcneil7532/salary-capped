@@ -1,7 +1,6 @@
 import * as cheerio from "cheerio";
 
 const getPlayerStats = async (playerSelected) => {
-  // console.log(playerSelected.name && playerSelected.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""));
 
   try {
     //gets last initial from name string for letter directory
