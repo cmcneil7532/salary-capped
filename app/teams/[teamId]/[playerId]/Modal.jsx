@@ -7,6 +7,7 @@ const Modal = ({
   setPlayerSelected,
   playerSelected,
   players,
+  playerDetails,
 }) => {
   if (!isVisible) return null;
   const findRelatedContracts = () => {
@@ -52,14 +53,6 @@ const Modal = ({
       setPlayerSelected({});
     }
   };
-  const player = nba.getPlayerID(`${playerSelected.name}`);
-  const headshot =
-    player &&
-    nba.getPlayerHeadshotURL({
-      PlayerID: player.PlayerID,
-      TeamID: player.TeamID,
-    });
-  console.log(headshot);
 
   return (
     <div
