@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import * as nba from "nba-api-client";
 import { stock } from "../../../../public/pictures";
 const Modal = ({
   isVisible,
@@ -76,9 +75,17 @@ const Modal = ({
       </button>
       <div className="w-[600px] h-[400px] bg-white rounded-md p-5 flex flex-row justify-around">
         <div>
-          <img src={headshot} className="h-[100px]" />
+          <img src={playerDetails.image} alt={`${playerSelected.name} image`} />
+          {/* {playerDetails.table.map((column) => {
+            return (
+              <div>
+                <p></p>
+              </div>
+            )
+          })}; */}
           <h1>{playerSelected.name}</h1>
           <p>{playerSelected.currentSalary}</p>
+          <p>{JSON.stringify(playerDetails)}</p>
         </div>
         <div>
           <h1>Related Player Contracts</h1>
