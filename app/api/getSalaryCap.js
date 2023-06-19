@@ -7,7 +7,6 @@ const getSalaryCap = async () => {
   const html = await response.text();
   const $ = cheerio.load(html);
   const allRows = $(".sortable");
-  console.log("yooooooo", allRows.length);
   const salary = [];
   allRows.each((index, element) => {
     const tds = $(element).find("td");
