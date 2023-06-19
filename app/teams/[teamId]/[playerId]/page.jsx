@@ -40,7 +40,7 @@ const Player = ({ roster, players }) => {
         setPlayerSelected={setPlayerSelected}
         playerSelected={playerSelected}
         players={players}
-        // playerDetails={playerDetails}
+        playerDetails={playerDetails}
       />
     </div>
   );
