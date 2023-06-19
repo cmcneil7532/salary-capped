@@ -5,6 +5,7 @@ const getPlayerStats = async (playerSelected) => {
   const americanName = decodedName
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "");
+
   try {
     //gets last initial from name string for letter directory
     const lastInitial =
