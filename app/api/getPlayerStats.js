@@ -42,7 +42,8 @@ const getPlayerStats = async (playerSelected) => {
         careerStat,
       });
     });
-    const playerBio = { image: playerImage, table: playerStats };
+    const shorterStats = playerStats.slice(0,8);
+    const playerBio = { image: playerImage, table: shorterStats };
     return playerBio;
   } catch (error) {
     console.log(error);

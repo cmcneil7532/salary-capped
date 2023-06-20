@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { stock } from "../../../../public/pictures";
+import pictures from "../../../../public/pictures";
 const Modal = ({
   isVisible,
   setShowModal,
@@ -68,7 +68,7 @@ const Modal = ({
       </button>
       <div className="w-[600px] h-[400px] bg-white rounded-md p-5 flex flex-row justify-around">
         <div>
-          <img src={playerDetails.image} alt={`${playerSelected.name} image`} />
+          <img className="h-[200px]"src={playerDetails.image ? playerDetails.image : pictures.stock.src} alt={`${playerSelected.name} image`} />
           <h1 className="text-lg font-bold">{playerSelected.name}</h1>
           <p className="font-medium mb-7">{playerSelected.currentSalary}</p>
           <div className="flex flex-row text-sm">
@@ -80,14 +80,14 @@ const Modal = ({
                   <p>{column.careerStat}</p>
               </div>
             )
-          })};
+          })}
           </div>
         </div>
         <div>
           <h1 className="text-base font-bold">Related Player Contracts</h1>
           {filteredPlayers.map((player, index) => {
             return (
-              <div className=" flex flex-row" key={index}>
+              <div className="flex flex-col" key={index}>
                 <p>{player.name}</p>
                 <p>
                   {player.salary.toLocaleString("en-US", {
@@ -96,7 +96,7 @@ const Modal = ({
                   })}
                 </p>
               </div>
-            );
+            )
           })}
         </div>
       </div>

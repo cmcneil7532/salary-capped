@@ -2,9 +2,3 @@
 @tailwind components;
 @tailwind utilities;
 
-
-homeBG {
-  background: url(/public/homeBG.jpg);
-  background-repeat: no-repeat;
-  background-size: auto;
-}

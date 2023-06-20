@@ -7,11 +7,12 @@ const Player = ({ roster, players }) => {
   const [playerSelected, setPlayerSelected] = useState({});
   const [playerDetails, setPlayerDetails] = useState({});
   return (
-    <div>
+    <div className="flex flex-col">
+      
       {roster.map((player, index) => {
         return (
           <div
-            className=" flex justify-evenly bg-gradient-to-tl from-slate-200 to-white hover:-translate-y-1 cursor-pointer"
+            className="flex justify-start text-sm bg-gradient-to-tl from-slate-200 to-white hover:-translate-y-1 cursor-pointer"
             key={index}
             onClick={async () => {
               setShowModal(true);
@@ -24,12 +25,12 @@ const Player = ({ roster, players }) => {
               setPlayerDetails(statData);
             }}
           >
-            <h3 className="text-xl w-[20vw]">{player.name}</h3>
-            <p className="w-[20vw]">{player.currentSalary}</p>
-            <p>
+            <h3 className="text-lg w-[30vw] mr-2">{player.name}</h3>
+            <p className="w-[25vw]">{player.currentSalary}</p>
+            <p className="w-[25vw]">
               {player["Next years"] ? player["Next years"] : "Contract End"}
             </p>
-            <p>{player.guranteed}</p>
+            <p className="">{player.guranteed}</p>
           </div>
         );
       })}
