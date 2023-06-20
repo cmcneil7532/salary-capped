@@ -26,27 +26,34 @@ export default async function Page({ params }) {
   });
 
   return (
-    <div className="h-screen bg-gradient-to-tl from-slate-100 to-slate-400">
-      <Link href="/#teams">Go Back</Link>
-      <img className="w-[20vw] ml-[40vw] pt-10" src={teamObj.image.src} />
-
-      <h1
-        className={
-          Number(marketSalary.replaceAll(",", "")) < total
-            ? "text-red-500"
-            : "text-green-600"
-        }
-      >
-        ${total}
-      </h1>
-      <h1>NBA Salary Cap: ${marketSalary}</h1>
-      <div className="w-[80vw] ml-[10vw]">
-        <div className="flex text-xl font-bold justify-evenly mt-3">
-          <h1 className="w-[20vw]">Player</h1>
-          <p className="w-[20vw]">{currentYear} Salary</p>
-          <p>{nextYear} Salary</p>
-          <p>Guaranteed</p>
+    <div className="min-h-screen bg-gradient-to-tl from-slate-100 to-slate-400">
+      <Link className="font-semibold text-sm m-4 mt-2 rounded-lg px-2 py-2 border-2 border-gray-200 text-gray-200 hover:bg-gray-200 hover:text-gray-900 duration-300" href="/#teams">Back to Teams</Link>
+      <div className="text-lg flex items-center justify-center">
+        <img className="w-[125px] pt-10" src={teamObj.image.src} />
+        <div className="m-5 mt-10 font-medium">
+        <h1 className="font-extrabold text-2xl">{teamObj.name}</h1>
+        <p>{currentYear} Payroll:</p>
+        <p
+          className={
+            Number(marketSalary.replaceAll(",", "")) < total
+              ? "text-red-500"
+              : "text-green-600"
+          }
+        >{total.toLocaleString("en-US", {
+                    style: "currency",
+                    currency: "USD",
+                  })}
+        </p>
+        <p>NBA Salary Cap: ${marketSalary}</p>
         </div>
+      </div>
+      <div className="min-w-screen mt-6">
+        <ul className="flex text-base font-semibold">
+          <li className="w-[30vw] mr-2">Player Name</li>
+          <li className="w-[25vw]">{currentYear} Salary</li>
+          <li className="w-[25vw]">{nextYear} Salary</li>
+          <li>Contract</li>
+        </ul>
         <Player roster={roster} players={data} />
       </div>
     </div>
