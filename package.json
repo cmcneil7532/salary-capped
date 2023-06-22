@@ -13,6 +13,7 @@
     "cheerio": "^1.0.0-rc.12",
     "eslint": "8.42.0",
     "eslint-config-next": "13.4.4",
+    "framer-motion": "^10.12.16",
     "jsdom": "^22.1.0",
     "nba-api-client": "^1.1.2",
     "next": "13.4.4",
