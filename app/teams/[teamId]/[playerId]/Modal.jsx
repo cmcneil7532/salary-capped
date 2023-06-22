@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import pictures from "../../../../public/pictures";
+import { motion } from "framer-motion";
 const Modal = ({
   isVisible,
   setShowModal,
@@ -59,6 +60,8 @@ const Modal = ({
       className="inset-0 fixed bg-black bg-opacity-25 backdrop-blur-sm justify-center items-center flex flex-col"
       id="modal-container"
       onClick={handleClick}
+      animate={{ x: 100 }}
+      transition={{ delay: 1 }}
     >
       <button
         onClick={handleClick}
@@ -67,9 +70,13 @@ const Modal = ({
         Close
       </button>
 
-      <div className="w-[600px] h-[400px] bg-gradient-to-br from-white to-slate-200 rounded-md p-5 flex flex-row justify-around max-sm:w-[375px] max-sm:h-[425px]">
+      <motion.div
+        className="w-[600px] h-[400px] bg-gradient-to-br from-white to-slate-200 rounded-md p-5 flex flex-row justify-around max-sm:w-[375px] max-sm:h-[425px]
+      "
+        animate={{ scale: [0, 1] }}
+        transition={{ times: [1] }}
+      >
         <div className="max-sm:w-1/2 text-sm">
-
           <img
             className="h-[200px] rounded-md"
             src={playerDetails.image ? playerDetails.image : pictures.stock.src}
@@ -95,9 +102,7 @@ const Modal = ({
           </div>
         </div>
         <div>
-
           <h1 className="text-base font-semibold border-b-2">
-
             Similarly Paid Players
           </h1>
           {filteredPlayers.map((player, index) => {
@@ -114,7 +119,7 @@ const Modal = ({
             );
           })}
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };
