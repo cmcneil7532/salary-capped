@@ -62,12 +62,14 @@ const Modal = ({
     >
       <button
         onClick={handleClick}
-        className="bg-rose-500 w-[600px] rounded-md hover:bg-rose-600 mb-2 h-7"
+        className="bg-rose-500 w-[600px] max-sm:w-[375px] rounded-md hover:bg-rose-600 mb-2 h-7"
       >
         Close
       </button>
-      <div className="w-[600px] h-[400px] bg-gradient-to-br from-white to-slate-200 rounded-md p-5 flex flex-row justify-around">
-        <div className="">
+
+      <div className="w-[600px] h-[400px] bg-gradient-to-br from-white to-slate-200 rounded-md p-5 flex flex-row justify-around max-sm:w-[375px] max-sm:h-[425px]">
+        <div className="max-sm:w-1/2 text-sm">
+
           <img
             className="h-[200px]"
             src={playerDetails.image ? playerDetails.image : pictures.stock.src}
@@ -93,7 +95,9 @@ const Modal = ({
           </div>
         </div>
         <div>
+
           <h1 className="text-base font-semibold border-b-2">
+
             Similarly Paid Players
           </h1>
           {filteredPlayers.map((player, index) => {
