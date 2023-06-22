@@ -3,7 +3,8 @@ import Teams from "./teams/page";
 import pictures from "../public/pictures";
 export default async function Home() {
   return (
-    <main className="">
+
+    <main>
       <div className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-b from-black to-gray-900">
         <img className="w-[600px] p-2" src={pictures.logo.src} />
         <p className="text-white m-5 w-1/2 text-center">
@@ -20,6 +21,7 @@ export default async function Home() {
       <section className="bg-gradient-to-b from-gray-900 to-gray-800">
         <Teams />
       </section>
+      <footer className="bg-slate-800  text-center text-sm text-slate-600">Developed By: Grant Gilman & Christian McNeil | 2023 All Rights Reserved</footer>
     </main>
   );
 }

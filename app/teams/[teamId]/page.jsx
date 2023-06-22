@@ -27,7 +27,7 @@ export default async function Page({ params }) {
 
   return (
     <div className="min-h-screen bg-gradient-to-tl from-slate-100 to-slate-400">
-      <Link className="font-semibold text-sm m-4 mt-2 rounded-lg px-2 py-2 border-2 border-gray-200 text-gray-200 hover:bg-gray-200 hover:text-gray-900 duration-300" href="/#teams">Back to Teams</Link>
+      <Link className="font-semibold text-sm m-10 mt-2 rounded-lg p-2 border-2 border-gray-200 text-gray-200 hover:bg-gray-200 hover:text-gray-900 duration-300" href="/#teams">Back to Teams</Link>
       <div className="text-lg flex items-center justify-center">
         <img className="w-[125px] pt-10" src={teamObj.image.src} />
         <div className="m-5 mt-10 font-medium">
@@ -47,7 +47,7 @@ export default async function Page({ params }) {
         <p>NBA Salary Cap: ${marketSalary}</p>
         </div>
       </div>
-      <div className="min-w-screen mt-6">
+      <div className="min-w-screen mt-6 m-10">
         <ul className="flex text-base font-semibold">
           <li className="w-[30vw] mr-2">Player Name</li>
           <li className="w-[25vw]">{currentYear} Salary</li>
@@ -56,6 +56,7 @@ export default async function Page({ params }) {
         </ul>
         <Player roster={roster} players={data} />
       </div>
+      <footer className="text-center text-sm text-slate-400 bottom-0">Developed By: <a target="_blank" href="https://www.linkedin.com/in/grant-gilman-83a396112/">Grant Gilman</a> & <a href="https://www.linkedin.com/in/christian-mcneil/" target="_blank">Christian McNeil</a> | 2023 All Rights Reserved</footer>
     </div>
   );
 }

@@ -66,11 +66,12 @@ const Modal = ({
       >
         Close
       </button>
-      <div className="w-[600px] h-[400px] bg-white rounded-md p-5 flex flex-row justify-around">
+      <div className="w-[600px] h-[400px] bg-gradient-to-br from-white to-slate-200 rounded-md p-5 flex flex-row justify-around">
         <div>
           <img className="h-[200px]"src={playerDetails.image ? playerDetails.image : pictures.stock.src} alt={`${playerSelected.name} image`} />
           <h1 className="text-lg font-bold">{playerSelected.name}</h1>
-          <p className="font-medium mb-7">{playerSelected.currentSalary}</p>
+          <p className="font-medium">Year Salary: {playerSelected.currentSalary}</p>
+          <p className="font-medium mb-5">On Contract: {playerSelected.guranteed}</p>
           <div className="flex flex-row text-sm">
           {playerDetails.table?.map((column, idx) => {
             return (
@@ -84,12 +85,12 @@ const Modal = ({
           </div>
         </div>
         <div>
-          <h1 className="text-base font-bold">Related Player Contracts</h1>
+          <h1 className="text-base font-semibold border-b-2 border-black">Similarly Paid Players</h1>
           {filteredPlayers.map((player, index) => {
             return (
-              <div className="flex flex-col" key={index}>
-                <p>{player.name}</p>
-                <p>
+              <div className="flex flex-col font-medium" key={index}>
+                <p>- {player.name}</p>
+                <p className="border-b-2">
                   {player.salary.toLocaleString("en-US", {
                     style: "currency",
                     currency: "USD",
