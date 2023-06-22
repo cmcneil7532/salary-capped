@@ -62,30 +62,40 @@ const Modal = ({
     >
       <button
         onClick={handleClick}
-        className="bg-rose-500 w-[600px] rounded-md hover:bg-rose-600 mb-2 h-7"
+        className="bg-rose-500 w-[600px] max-sm:w-[375px] rounded-md hover:bg-rose-600 mb-2 h-7"
       >
         Close
       </button>
-      <div className="w-[600px] h-[400px] bg-gradient-to-br from-white to-slate-200 rounded-md p-5 flex flex-row justify-around">
-        <div>
-          <img className="h-[200px]"src={playerDetails.image ? playerDetails.image : pictures.stock.src} alt={`${playerSelected.name} image`} />
+      <div className="w-[600px] h-[400px] bg-gradient-to-br from-white to-slate-200 rounded-md p-5 flex flex-row justify-around max-sm:w-[375px] max-sm:h-[425px]">
+        <div className="max-sm:w-1/2 text-sm">
+          <img
+            className="h-[200px]"
+            src={playerDetails.image ? playerDetails.image : pictures.stock.src}
+            alt={`${playerSelected.name} image`}
+          />
           <h1 className="text-lg font-bold">{playerSelected.name}</h1>
-          <p className="font-medium">Year Salary: {playerSelected.currentSalary}</p>
-          <p className="font-medium mb-5">On Contract: {playerSelected.guranteed}</p>
+          <p className="font-medium">
+            Year Salary: {playerSelected.currentSalary}
+          </p>
+          <p className="font-medium mb-5">
+            On Contract: {playerSelected.guranteed}
+          </p>
           <div className="flex flex-row text-sm">
-          {playerDetails.table?.map((column, idx) => {
-            return (
-              <div key={idx} className="flex-col mr-2">
+            {playerDetails.table?.map((column, idx) => {
+              return (
+                <div key={idx} className="flex-col mr-2">
                   <p className="font-semibold">{column.colHead}</p>
                   <p>{column.currentYearStat}</p>
                   <p>{column.careerStat}</p>
-              </div>
-            )
-          })}
+                </div>
+              );
+            })}
           </div>
         </div>
         <div>
-          <h1 className="text-base font-semibold border-b-2 border-black">Similarly Paid Players</h1>
+          <h1 className="text-base font-semibold border-b-2 border-black">
+            Similarly Paid Players
+          </h1>
           {filteredPlayers.map((player, index) => {
             return (
               <div className="flex flex-col font-medium" key={index}>
@@ -97,7 +107,7 @@ const Modal = ({
                   })}
                 </p>
               </div>
-            )
+            );
           })}
         </div>
       </div>
