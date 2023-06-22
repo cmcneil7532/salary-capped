@@ -47,16 +47,16 @@ export default async function Page({ params }) {
         <p>NBA Salary Cap: ${marketSalary}</p>
         </div>
       </div>
-      <div className="min-w-screen mt-6 m-10">
-        <ul className="flex text-base font-semibold">
-          <li className="w-[30vw] mr-2">Player Name</li>
-          <li className="w-[25vw]">{currentYear} Salary</li>
-          <li className="w-[25vw]">{nextYear} Salary</li>
-          <li>Contract</li>
+      <div className="min-w-screen mt-6 m-4 max-sm:m-0">
+        <ul className="flex justify-around align-center text-base font-semibold">
+          <li className="w-[25vw]">Player</li>
+          <li className="w-[25vw]">{currentYear}</li>
+          <li className="w-[25vw]">{nextYear}</li>
+          <li className="w-25vw">Contract</li>
         </ul>
         <Player roster={roster} players={data} />
       </div>
-      <footer className="text-center text-sm text-slate-400 bottom-0">Developed By: <a target="_blank" href="https://www.linkedin.com/in/grant-gilman-83a396112/">Grant Gilman</a> & <a href="https://www.linkedin.com/in/christian-mcneil/" target="_blank">Christian McNeil</a> | 2023 All Rights Reserved</footer>
+      <footer className="text-center text-xs text-slate-400 bottom-0">Developed By: <a target="_blank" href="https://www.linkedin.com/in/grant-gilman-83a396112/">Grant Gilman</a> & <a href="https://www.linkedin.com/in/christian-mcneil/" target="_blank">Christian McNeil</a> | 2023 All Rights Reserved</footer>
     </div>
   );
 }

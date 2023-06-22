@@ -6,7 +6,7 @@ const Teams = () => {
       {teams.map((team) => {
         return (
           <div key={team.id} className="flex justify-center self-center">
-            <a className="hover:translate-y-1 p-3" href={`teams/${team.id}`}>
+            <a className="hover:translate-y-1 p-3 pb-10" href={`teams/${team.id}`}>
               <img className="w-20" src={team.image.src} alt={team.name} />
             </a>
           </div>

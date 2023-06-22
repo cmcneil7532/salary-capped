@@ -6,6 +6,7 @@ const Player = ({ roster, players }) => {
   const [showModal, setShowModal] = useState(false);
   const [playerSelected, setPlayerSelected] = useState({});
   const [playerDetails, setPlayerDetails] = useState({});
+  
   return (
     <div className="flex flex-col">
       
@@ -25,9 +26,9 @@ const Player = ({ roster, players }) => {
               setPlayerDetails(statData);
             }}
           >
-            <h3 className="text-base w-[30vw] mr-2 font-normal ml-1">{player.name}</h3>
+            <h3 className="text-base w-[30vw] mr-1">{player.name}</h3>
             <p className="w-[25vw]">{player.currentSalary}</p>
-            <p className="w-[25vw]">
+            <p className="w-[25vw] ml-2 mr-2">
               {player["Next years"] ? player["Next years"] : "Contract End"}
             </p>
             <p className="">{player.guranteed}</p>
