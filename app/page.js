@@ -7,7 +7,7 @@ export default async function Home() {
       <div className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-b from-black to-gray-900">
         <img className="w-[600px] p-2" src={pictures.logo.src} />
         <p className="text-gray-300 mt-0 m-6 w-1/2 text-center font-semibold font-sans italic">
-          Track & Compare Payroll and Stats around the League. Be your own GM.
+        Track Team Payroll & Compare SSalaries around the League. Be your own GM.
         </p>
         <Link
           href="#teams"
