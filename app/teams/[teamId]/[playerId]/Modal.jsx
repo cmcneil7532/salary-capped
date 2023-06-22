@@ -66,8 +66,10 @@ const Modal = ({
       >
         Close
       </button>
+
       <div className="w-[600px] h-[400px] bg-gradient-to-br from-white to-slate-200 rounded-md p-5 flex flex-row justify-around max-sm:w-[375px] max-sm:h-[425px]">
         <div className="max-sm:w-1/2 text-sm">
+
           <img
             className="h-[200px]"
             src={playerDetails.image ? playerDetails.image : pictures.stock.src}
@@ -93,12 +95,14 @@ const Modal = ({
           </div>
         </div>
         <div>
-          <h1 className="text-base font-semibold border-b-2 border-black">
+
+          <h1 className="text-base font-semibold border-b-2">
+
             Similarly Paid Players
           </h1>
           {filteredPlayers.map((player, index) => {
             return (
-              <div className="flex flex-col font-medium" key={index}>
+              <div className="flex flex-col font-medium text-sm" key={index}>
                 <p>- {player.name}</p>
                 <p className="border-b-2">
                   {player.salary.toLocaleString("en-US", {

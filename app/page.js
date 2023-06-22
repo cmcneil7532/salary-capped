@@ -7,13 +7,12 @@ export default async function Home() {
     <main>
       <div className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-b from-black to-gray-900">
         <img className="w-[600px] p-2" src={pictures.logo.src} />
-        <p className="text-white m-5 w-1/2 text-center">
-          Be your own GM by the tracking the latest updates on player contracts
-          and stats.
+        <p className="text-gray-300 mt-0 m-6 w-1/2 text-center font-semibold font-sans italic">
+          Track & Compare Payroll and Stats around the League. Be your own GM.
         </p>
         <Link
           href="#teams"
-          className="rounded-lg px-4 py-2 border-2 border-gray-200 text-gray-200 hover:bg-gray-200 hover:text-gray-900 duration-300"
+          className="font-bold rounded-lg px-4 py-2 border-2 border-gray-200 text-gray-200 hover:bg-gray-200 hover:text-gray-900 duration-300"
         >
           Get Started
         </Link>
