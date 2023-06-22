@@ -71,7 +71,7 @@ const Modal = ({
         <div className="max-sm:w-1/2 text-sm">
 
           <img
-            className="h-[200px]"
+            className="h-[200px] rounded-md"
             src={playerDetails.image ? playerDetails.image : pictures.stock.src}
             alt={`${playerSelected.name} image`}
           />
