@@ -1,13 +1,15 @@
 import Link from "next/link";
 import Teams from "./teams/page";
 import pictures from "../public/pictures";
+
 export default async function Home() {
   return (
     <main>
       <div className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-b from-black to-gray-900">
         <img className="w-[600px] p-2" src={pictures.logo.src} />
         <p className="text-gray-300 mt-0 m-6 w-1/2 text-center font-semibold font-sans italic">
-        Track Team Payroll & Compare SSalaries around the League. Be your own GM.
+          Track Team Payroll & Compare Salaries around the League. Be your own
+          GM.
         </p>
         <Link
           href="#teams"
