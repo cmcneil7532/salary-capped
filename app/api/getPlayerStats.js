@@ -18,9 +18,22 @@ const getPlayerStats = async (playerSelected) => {
     const fiveCharsOfLastName = separatedNameArr[1]
       .replace(/[^a-z0-9]/gi, "")
       .slice(0, 5);
-    const namePath = (
+    let namePath = (
       fiveCharsOfLastName + twoCharsOfFirstName.substring(0, 2)
     ).toLowerCase();
+    console.log(namePath);
+    if(namePath === "osmance") {
+      namePath = "osmande"
+    }
+    if(namePath === "capelcl") {
+      namePath = "capelca"
+    }
+    if(namePath === "klebema") {
+      namePath = "klebima"
+    }
+    if(namePath === "ntilifr") {
+      namePath = "ntilila"
+    }
     let count = 1;
     //web scrape for player stats
     let match = false;
@@ -33,8 +46,6 @@ const getPlayerStats = async (playerSelected) => {
         const html = await response.text();
         const $ = cheerio.load(html);
         const playerName = $("#meta div h1 span").text();
-        console.log(playerName);
-        console.log(decodedName);
         if (playerName === decodedName) {
           console.log('hitting true');
           match = true;
@@ -56,9 +67,9 @@ const getPlayerStats = async (playerSelected) => {
           });
           const shorterStats = playerStats.slice(0, 8);
           const playerBio = { image: playerImage, table: shorterStats };
-          console.log(playerBio);
           return playerBio;
         } else {
+          if(count === 7) { break };
           console.log('hitting false');
           count++;
         }
