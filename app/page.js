@@ -21,8 +21,19 @@ export default async function Home() {
       <section className="bg-gradient-to-b from-gray-900 to-gray-800">
         <Teams />
       </section>
-      <footer className="bg-slate-800  text-center text-sm text-slate-600">
-        Developed By: Grant Gilman & Christian McNeil | 2023 All Rights Reserved
+      <footer className="bg-slate-800  text-center text-md text-slate-600 p-5">
+        Developed By:{" "}
+        <a
+          target="_blank"
+          href="https://www.linkedin.com/in/grant-gilman-83a396112"
+        >
+          Grant Gilman
+        </a>{" "}
+        &{" "}
+        <a href="https://www.linkedin.com/in/christian-mcneil/" target="_blank">
+          Christian McNeil
+        </a>{" "}
+        | 2023 All Rights Reserved
       </footer>
     </main>
   );

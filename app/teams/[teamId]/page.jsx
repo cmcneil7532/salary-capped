@@ -27,24 +27,30 @@ export default async function Page({ params }) {
 
   return (
     <div className="min-h-screen bg-gradient-to-tl from-slate-300 to-slate-500">
-      <Link className=" font-semibold text-sm m-10 mt-2 rounded-lg p-2 border-2 border-gray-200 text-gray-200 hover:bg-orange-600 hover:text-black duration-300" href="/#teams">Back to Teams</Link>
+      <Link
+        className=" font-semibold text-sm m-10 mt-2 rounded-lg p-2 border-2 border-gray-200 text-gray-200 hover:bg-orange-600 hover:text-black duration-300"
+        href="/#teams"
+      >
+        Back to Teams
+      </Link>
       <div className="text-lg flex items-center justify-center">
         <img className="w-[125px] pt-10" src={teamObj.image.src} />
         <div className="m-5 mt-10 font-medium">
-        <h1 className="font-extrabold text-2xl">{teamObj.name}</h1>
-        <p>{currentYear} Payroll:</p>
-        <p
-          className={
-            Number(marketSalary.replaceAll(",", "")) < total
-              ? "text-red-500"
-              : "text-green-600"
-          }
-        >{total.toLocaleString("en-US", {
-                    style: "currency",
-                    currency: "USD",
-                  })}
-        </p>
-        <p>NBA Salary Cap: ${marketSalary}</p>
+          <h1 className="font-extrabold text-2xl">{teamObj.name}</h1>
+          <p>{currentYear} Payroll:</p>
+          <p
+            className={
+              Number(marketSalary.replaceAll(",", "")) < total
+                ? "text-red-500"
+                : "text-green-600"
+            }
+          >
+            {total.toLocaleString("en-US", {
+              style: "currency",
+              currency: "USD",
+            })}
+          </p>
+          <p>NBA Salary Cap: ${marketSalary}</p>
         </div>
       </div>
       <div className="min-w-screen mt-6 m-4 max-sm:m-0">
@@ -56,7 +62,20 @@ export default async function Page({ params }) {
         </ul>
         <Player roster={roster} players={data} />
       </div>
-      <footer className="text-center text-xs text-slate-400 bottom-0">Developed By: <a target="_blank" href="https://www.linkedin.com/in/grant-gilman-83a396112/">Grant Gilman</a> & <a href="https://www.linkedin.com/in/christian-mcneil/" target="_blank">Christian McNeil</a> | 2023 All Rights Reserved</footer>
+      <footer className="text-center text-xs text-slate-400 bottom-0">
+        Developed By:{" "}
+        <a
+          target="_blank"
+          href="https://www.linkedin.com/in/grant-gilman-83a396112/"
+        >
+          Grant Gilman
+        </a>{" "}
+        &{" "}
+        <a href="https://www.linkedin.com/in/christian-mcneil/" target="_blank">
+          Christian McNeil
+        </a>
+        | 2023 All Rights Reserved
+      </footer>
     </div>
   );
 }
